@@ -1,5 +1,3 @@
-process.on('uncaughtException', (err) => { console.error('UNCAUGHT:', err); process.exit(1); });
-process.on('unhandledRejection', (err) => { console.error('UNHANDLED:', err); process.exit(1); });
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
@@ -14,6 +12,9 @@ import productRoutes from './routes/product.routes.js';
 import adminRoutes   from './routes/admin.routes.js';
 import cartRoutes    from './routes/cart.routes.js';
 import orderRoutes   from './routes/order.routes.js';
+process.on('uncaughtException', (err) => { console.error('UNCAUGHT:', err); process.exit(1); });
+process.on('unhandledRejection', (err) => { console.error('UNHANDLED:', err); process.exit(1); });
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -57,3 +58,5 @@ app.use(notFound);
 app.use(errorHandler);
 
 export default app;
+
+
