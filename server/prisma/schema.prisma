@@ -1,4 +1,4 @@
-Set-Content C:\shopping-cart\server\prisma\schema.prisma 'generator client {
+generator client {
   provider = "prisma-client-js"
 }
 
@@ -130,4 +130,4 @@ model OrderItem {
   order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
   product   Product  @relation(fields: [productId], references: [id])
   @@map("order_items")
-}'
+}
